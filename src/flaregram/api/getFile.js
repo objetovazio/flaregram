@@ -38,7 +38,7 @@ export async function f_getFile(body) {
             colors.red +
               `ERROR =>  ` +
               colors.yellow +
-              `Cannot Copy Message - msg: ${payload.message_id}` +
+              `Cannot Get File - msg: ${payload.message_id}` +
               colors.white
           );
 

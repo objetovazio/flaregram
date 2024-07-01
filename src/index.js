@@ -2,6 +2,9 @@ import { router } from './flaregram/utils/router';
 import { bot } from './flaregram/bot';
 import Replicate from "replicate";
 
+// const MTProto = require('@mtproto/core');
+const MTProto = require('@mtproto/core/envs/browser');
+
 const replicate = new Replicate({
   auth: REPLICATE_API_TOKEN,
 });
@@ -18,7 +21,7 @@ export async function startCommand(body) {
 
   const messageParams = {
     chat_id: chatId,
-    text: `🎙️ Olá [${firstname}](tg://user?id=${user_id})! Mande um áudio para que eu possa transcrever.`,
+    text: `🎙️ Olá, [${firstname}](tg://user?id=${user_id})! Mande um áudio para que eu possa transcrever. Tamanho máximo de 20mb.`,
     parse_mode: "markdown"
   };
 
@@ -31,7 +34,7 @@ export async function sendWelcome(body) {
 
   const messageParams = {
     chat_id: chatId,
-    text: "🎙️ Olá! Mande um áudio para que eu possa transcrever."
+    text: `🎙️ Olá, [${firstname}](tg://user?id=${user_id})! Mande um áudio para que eu possa transcrever.`
   };
 
   await bot.message.sendMessage(messageParams);

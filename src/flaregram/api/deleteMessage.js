@@ -38,7 +38,7 @@ export async function f_deleteMessage(body) {
   .then(response => {
     if (response.ok == false){
     console.error(ErrorStr.telegramError + colors.yellow + response.description + colors.white)
-    console.error(colors.red + `ERROR =>  ` + colors.yellow + `Cannot Copy Message - msg: ${payload.message_id}` + colors.white)
+    console.error(colors.red + `ERROR =>  ` + colors.yellow + `Cannot Delete Message - msg: ${payload.message_id}` + colors.white)
     };
 
     return response

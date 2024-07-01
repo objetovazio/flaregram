@@ -11,6 +11,7 @@
     "wrangler": "^3.30.1"
   },
   "dependencies": {
+    "@mtproto/core": "6.3.0",
     "node-fetch": "^3.3.2",
     "replicate": "^0.30.2"
   }

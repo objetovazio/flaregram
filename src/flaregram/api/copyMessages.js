@@ -4,7 +4,7 @@
 import { ErrorStr, colors } from '../utils/strings.js';
 
 /// --------- Copy Messages Function ---------- ///
-export async function f_copyMessage(body) {
+export async function f_copyMessages(body) {
   try {
   const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/copyMessages`;
 
