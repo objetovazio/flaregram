@@ -43,7 +43,6 @@ export async function f_sendMessage(body) {
     parse_mode: param_parse_mode
   };
 
-    console.log(JSON.stringify(payload));
   const response = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

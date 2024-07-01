@@ -59,16 +59,13 @@ export async function handleAudioMessage(body) {
     }
 
     // Construct file URL
-    const fileData = `https://api.telegram.org/bot${BOT_TOKEN}/getFile?file_id=${fileId}`;
+    var fileInfo = await bot.message.getFile({
+      file_id: fileId
+    });
 
-    // Fetch file details
-    var result = null
-    await fetch(fileData)
-    .then((response) => response.json())
-    .then((json) => result = json.result);
-
-    const fileSize = result.file_size;
-    const fileUrl = `https://api.telegram.org/file/bot${BOT_TOKEN}/${result.file_path}`;
+    fileInfo = fileInfo.result;
+    const fileSize = fileInfo.file_size;
+    const fileUrl = `https://api.telegram.org/file/bot${BOT_TOKEN}/${fileInfo.file_path}`;
 
     let feedbackMessage = fileSize > 10 * 1024 * 1024 ?
       "⌛ Aguarde, estou transcrevendo seu áudio. Como o arquivo é grande, pode demorar um pouco." :
@@ -96,11 +93,10 @@ export async function handleAudioMessage(body) {
       chat_id: chatId,
       text: transcription
     });
-
-    const urlDeleteMessage = `https://api.telegram.org/bot${BOT_TOKEN}/deleteMessage?chat_id=${chatId}&message_id=${sentMessage.result.message_id}`;
-    var deleted = await fetch(urlDeleteMessage)
-    .then((response) => response.json())
-
+    await bot.message.deleteMessage({
+      chat_id: chatId,
+      message_id: sentMessage.result.message_id
+    })
   } catch (error) {
     console.error(`Error: ${error}`);
     await bot.message.sendMessage({

@@ -6,6 +6,8 @@ import { f_forwardMessages } from "./api/forwardMessages";
 import { f_sendMessage } from "./api/sendMessage";
 import { f_answerCallbackQuery } from "./api/answerCallbackQuery";
 import { f_copyMessage } from "./api/copyMessage";
+import { f_getFile } from "./api/getFile";
+import { f_deleteMessage } from "./api/deleteMessage";
 
 /// Bot Object for flaregram
 
@@ -15,7 +17,9 @@ export const bot = {
         forwardMessage: f_forwardMessage,
         forwardMessages: f_forwardMessages,
         copyMessage: f_copyMessage,
-        answerCallbackQuery: f_answerCallbackQuery
+        answerCallbackQuery: f_answerCallbackQuery,
+        getFile: f_getFile,
+        deleteMessage: f_deleteMessage
     },
 };
 
