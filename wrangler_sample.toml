@@ -12,8 +12,10 @@ host = "localhost"
 
 # Mandatory Variables
 REPO_VERSION = "1.0.1"
-BOT_TOKEN = ""
+BOT_TOKEN = "7447665616:AAH6TveG1NB8nbidhj3ShGZ9cuFT1Y9zI18"
 WEBHOOK_URL = ""
+REPLICATE_OPENAI_RUN = ''
+REPLICATE_API_TOKEN = ''
 
 # Optional Variables
 SECRET_TOKEN = ""
