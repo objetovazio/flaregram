@@ -48,7 +48,7 @@ export async function f_sendMessage(body) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
-  });
+  }).then((response) => response.json());
 
   if (!response.ok) {
     console.error('Error sending message:', response.status, response.statusText);
@@ -60,6 +60,6 @@ export async function f_sendMessage(body) {
     console.error(error)
   };
 
-  return response.json()
+  return response
 }
 

@@ -17,8 +17,5 @@ export const bot = {
         copyMessage: f_copyMessage,
         answerCallbackQuery: f_answerCallbackQuery
     },
-
-
-
 };
 

@@ -22,7 +22,6 @@ async function setWebhook(URL, SECRET_TOKEN, DROP_PENDING_UPDATES) {
   try {
     const response = await fetch(HOOK_URL, { method: 'POST' });
     const data = await response.json();
-    console.log(HOOK_URL);
     return data;
   } catch (err) {
     console.error("new error: " + err);

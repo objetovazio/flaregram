@@ -13,7 +13,6 @@ const router = {
   handle(request) {
     const { pathname } = new URL(request.url);
     const route = this.routes.find((route) => route.method === request.method && new RegExp(`^${route.path}$`).test(pathname));
-    console.log(route);
     if (route) {
       return route.handler(request);
     } else {
