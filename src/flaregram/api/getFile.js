@@ -2,7 +2,7 @@
 
 import { ErrorStr, colors } from "../utils/strings.js";
 
-/// --------- Copy Single Message Function ---------- ///
+/// --------- Get File Function ---------- ///
 export async function f_getFile(body) {
   try {
     var param_file_id = "";

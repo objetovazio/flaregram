@@ -3,7 +3,7 @@
 
 import { ErrorStr, colors } from '../utils/strings.js';
 
-/// --------- Copy Single Message Function ---------- ///
+/// --------- Delete Single Message Function ---------- ///
 export async function f_deleteMessage(body) {
   try {
   const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/deleteMessage`;
