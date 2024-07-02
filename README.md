@@ -10,27 +10,15 @@ You can try the bot now at [https://t.me/EuTranscrevo_bot](https://t.me/EuTransc
 
 ## Based on Flaregram
 
-This project is based on Flaregram, a light-weight, blazing fast, easy-to-use, Telegram HTTP bot API framework written in JavaScript. It runs on Cloudflare Workers and uses Wrangler too.
-
-<p align=center>
-<img alt="build" src="https://img.shields.io/static/v1?label=Build&message=Unstable&color=ff1743&logo=github">
-<img alt="GitHub package.json dynamic" src="https://img.shields.io/github/package-json/version/adityash4rma/flaregram?color=ff1743">
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/adityash4rma/flaregram?color=ff1743">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/adityash4rma/flaregram?color=ff1743">
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/adityash4rma/flaregram">
-<img alt="GitHub Discussions" src="https://img.shields.io/github/discussions/adityash4rma/flaregram?color=ff1743">
-</p>
-<br>
-
-<p align = "center">
-<img src="https://telegra.ph/file/32b8407ce6ba4fe9d8d8c.png" width=400 />
-</p>
+This project is based on [Flaregram](https://github.com/adityash4rma/flaregram), a super-light, blazing fast, easy-to-use Telegram HTTP bot API framework written in JavaScript. Flaregram simplifies communication with the Telegram Bot API and is ideal for deploying bots on Cloudflare Workers.
 
 ## Requirements
 
 Before you begin, ensure you have the following installed:
 
-- [Wrangler](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
+- Node.js - [Download](https://nodejs.org/)
+- NPM(Node Package Manager) - [Download/Install](https://www.npmjs.com/get-npm)
+- Wrangler CLI - [Download](https://developers.cloudflare.com/workers/cli-wrangler/install-update)
 
 ## Installation / Usage
 
@@ -48,7 +36,25 @@ Before you begin, ensure you have the following installed:
 3. Set up environment variables:
 
    Copy `wrangler_sample.toml` to `wrangler.toml` and update the following variables:
+
+   ## BOT_TOKEN
+   It is the Bot Token of your Telegram Bot, can be obtained from @botfather (on telegram), How to Get BOT_TOKEN
+ 
+   ## WEBHOOK_URL
+   The webhook url with the format cloudflare workers domain/bot, i.e. https://myworker.mysubdomain.workers.dev/bot, the endpoint should be /bot   and nothing else.
+ 
+   ## SECRET_TOKEN (optional)
+   The token is useful to ensure that the request sent from our bot is sent by us. Token should be 1-256 characters. Only characters A-Z, a-z, 0-9,  _ and - are allowed.
+ 
+   ## DROP_PENDING_UPDATES (optional)
+   Set True to drop all pending updates.
+
+   ## REPLICATE_OPENAI_RUN
+   The Replicate Whisper OpenIA model which you want to run. We are currently using ```openai/whisper:4d50797290df275329f202e48c76360b3f22b08d28c196cbc54600319435f8d2```.
    
+   ## REPLICATE_API_TOKEN
+   Your Replicate authentication token.
+
    ```toml
    [vars]
    REPO_VERSION = "1.0.0"
@@ -59,7 +65,7 @@ Before you begin, ensure you have the following installed:
 
 4. Deploy the bot to Cloudflare using Wrangler:
     ```sh
-    wrangler deploy
+    npx wrangler deploy
     ```
 
 5. Interact with the bot via Telegram.
@@ -81,20 +87,3 @@ The main file of the bot. It includes the following functionalities:
 - **sendWelcome**: Sends a welcome message to users.
 - **handleAudioMessage**: Processes incoming audio messages, sends them to the Whisper API for transcription, and returns the transcribed text.
 - **updateHandler**: Handles updates, such as incoming messages, and routes them to the appropriate functions.
-
-#### Example: startCommand Function
-
-```javascript
-export async function startCommand(body) {
-  const user_id = body.message.from.id;
-  const firstname = body.message.chat.first_name;
-  const chatId = body.message.chat.id;
-
-  const messageParams = {
-    chat_id: chatId,
-    text: `🎙️ Olá, [${firstname}](tg://user?id=${user_id})! Mande um áudio para que eu possa transcrever. Tamanho máximo de 20mb.`,
-    parse_mode: "markdown"
-  };
-
-  await bot.message.sendMessage(messageParams);
-}
