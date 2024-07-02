@@ -75,15 +75,3 @@ Before you begin, ensure you have the following installed:
 ![License Logo](https://www.gnu.org/graphics/agplv3-with-text-162x68.png)
 
 _whisper-transcribe-bot © 2024 by Your Name is licensed under GNU AFFERO GENERAL PUBLIC LICENSE (GNU AGPL v3). To view a copy of this license_ [click here](https://www.gnu.org/licenses/agpl-3.0.en.html)
-
-## Code Overview
-
-### index.js
-
-The main file of the bot. It includes the following functionalities:
-
-- **Event Listener**: Listens for incoming requests and routes them.
-- **startCommand**: Handles the `/start` command by sending a welcome message.
-- **sendWelcome**: Sends a welcome message to users.
-- **handleAudioMessage**: Processes incoming audio messages, sends them to the Whisper API for transcription, and returns the transcribed text.
-- **updateHandler**: Handles updates, such as incoming messages, and routes them to the appropriate functions.
