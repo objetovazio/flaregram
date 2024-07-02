@@ -37,22 +37,22 @@ Before you begin, ensure you have the following installed:
 
    Copy `wrangler_sample.toml` to `wrangler.toml` and update the following variables:
 
-   ## BOT_TOKEN
+   ### BOT_TOKEN
    It is the Bot Token of your Telegram Bot, can be obtained from @botfather (on telegram), How to Get BOT_TOKEN
  
-   ## WEBHOOK_URL
+   ### WEBHOOK_URL
    The webhook url with the format cloudflare workers domain/bot, i.e. https://myworker.mysubdomain.workers.dev/bot, the endpoint should be /bot   and nothing else.
  
-   ## SECRET_TOKEN (optional)
+   ### SECRET_TOKEN (optional)
    The token is useful to ensure that the request sent from our bot is sent by us. Token should be 1-256 characters. Only characters A-Z, a-z, 0-9,  _ and - are allowed.
  
-   ## DROP_PENDING_UPDATES (optional)
+   ### DROP_PENDING_UPDATES (optional)
    Set True to drop all pending updates.
 
-   ## REPLICATE_OPENAI_RUN
+   ### REPLICATE_OPENAI_RUN
    The Replicate Whisper OpenIA model which you want to run. We are currently using ```openai/whisper:4d50797290df275329f202e48c76360b3f22b08d28c196cbc54600319435f8d2```.
    
-   ## REPLICATE_API_TOKEN
+   ### REPLICATE_API_TOKEN
    Your Replicate authentication token.
 
    ```toml
