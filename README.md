@@ -56,12 +56,17 @@ Before you begin, ensure you have the following installed:
    Your Replicate authentication token.
 
    ```toml
-   [vars]
-   REPO_VERSION = "1.0.0"
-   BOT_TOKEN = "your_telegram_bot_token"
-   WEBHOOK_URL = "your_webhook_url"
-   REPLICATE_OPENAI_RUN = "your_replicate_openai_run"
-   REPLICATE_API_TOKEN = "your_replicate_api_token"
+    # Mandatory Variables
+    REPO_VERSION = "1.0.1"
+    BOT_TOKEN = ""
+    WEBHOOK_URL = ""
+    REPLICATE_OPENAI_RUN = ''
+    REPLICATE_API_TOKEN = ''
+
+    # Optional Variables
+    SECRET_TOKEN = ""
+    DROP_PENDING_UPDATES = "True"
+    ```
 
 4. Deploy the bot to Cloudflare using Wrangler:
     ```sh
