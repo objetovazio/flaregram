@@ -70,10 +70,26 @@ Before you begin, ensure you have the following installed:
 
 4. Deploy the bot to Cloudflare using Wrangler:
     ```sh
+    npx wrangler login
     npx wrangler deploy
     ```
 
-5. Interact with the bot via Telegram.
+5. Setting up the Webhook `WEBHOOK_URL` through [Cloudflare Dashboard](https://dash.cloudflare.com/):
+
+    * Goto your CF (Cloudflare) Dashboard and go to `Workers & Pages / Overview / samplebot`.
+    * Now open your worker and goto the `Settings` tab, and click on the `Triggers` tab, and under `Routes` category you'll see your workers address, copy that. 
+    * Now, on the `Settings` tab, and click on the `Variables` tab to access the ENV Variables.
+    * Click on `Edit Variables`, and replace the `WEBHOOK_URL` with the workers address that you just copied, with the endpoint as `/bot`, that'd be `https://samplebot.yoursubdomain.workers.dev/bot`
+    > ⚠️ The `/bot` endpoint is necessary on the `WEBHOOK_URL` var.
+    * Now again, send a `POST` request to the `/set-webhook` endpoint of the workers address, that'd be `https://samplebot.yoursubdomain.workers.dev/set-webhook`
+
+And the server would return,
+
+```
+Webhook was set
+```
+
+After everything's Done! time to message our brand new bot!
 
 ## License
 
